@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ColorPickerModule } from 'ngx-color-picker';
 import { AppComponent } from './app.component';
 import { ColorSampleComponent } from './components/color-sample/color-sample.component';
 
@@ -13,6 +16,9 @@ import { ColorSampleComponent } from './components/color-sample/color-sample.com
     BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
+    MatIconModule,
+    ColorPickerModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

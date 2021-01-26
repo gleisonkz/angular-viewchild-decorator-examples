@@ -1,8 +1,15 @@
-<h2>Escolha uma das cores</h2>
+<div class="container">
+  <h2>Escolha uma das cores</h2>
 
-<color-sample></color-sample>
+  <color-sample [color]="primary" #primaryColorSample> </color-sample>
 
-<mat-form-field>
-  <mat-label>Cor Primária</mat-label>
-  <input type="text" matInput #primaryInput />
-</mat-form-field>
+  <mat-form-field>
+    <mat-label>Cor Primária</mat-label>
+    <input
+      matInput
+      #primaryInput
+      [(colorPicker)]="primary"
+      [(ngModel)]="primary"
+    />
+  </mat-form-field>
+</div>
