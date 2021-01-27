@@ -1,7 +1,12 @@
 <div class="container">
-  <h2>Escolha uma das cores</h2>
+  <h2 #title>Escolha uma das cores</h2>
 
-  <color-sample [color]="primary" #primaryColorSample> </color-sample>
+  <color-sample
+    [color]="primary"
+    #primaryColorSample
+    (click)="openColorPicker()"
+  >
+  </color-sample>
 
   <mat-form-field>
     <mat-label>Cor Primária</mat-label>
