@@ -1,16 +1,25 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { ColorPickerDirective } from 'ngx-color-picker';
 import { ColorSampleComponent } from './components/color-sample/color-sample.component';
+import { ColorSampleService } from './services/color-sample.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'angular-viewchild-decorator-examples';
   primary = '#1976d2';
+
+  // recuperando a referencia de um serviço
+  @ViewChild(ColorSampleService)
+  service: ColorSampleService;
+
+  ngAfterViewInit(): void {
+    this.service.log();
+  }
 
   // recuperando a referencia de diretivas
   @ViewChild('primaryInput', { read: ColorPickerDirective })

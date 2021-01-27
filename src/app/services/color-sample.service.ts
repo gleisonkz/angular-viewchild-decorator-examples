@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ColorSampleService {
-  constructor() {}
+  prefix = 'service';
 
   log() {
-    console.log('ColorSampleService');
+    console.log(`Current Prefix:${this.prefix}`);
   }
 }
