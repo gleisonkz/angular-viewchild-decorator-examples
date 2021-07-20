@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { API_URL } from 'src/app/api.token';
 import { ColorSampleService } from 'src/app/services/color-sample.service';
 
@@ -12,7 +12,10 @@ import { ColorSampleService } from 'src/app/services/color-sample.service';
   ],
 })
 export class ColorSampleComponent implements OnInit {
-  constructor(private colorSampleService: ColorSampleService) {}
+  constructor(
+    private colorSampleService: ColorSampleService,
+    @Inject(API_URL) private url: string
+  ) {}
 
   ngOnInit(): void {
     this.colorSampleService.prefix = 'color-sample';

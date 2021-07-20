@@ -3,7 +3,9 @@ import {
   Component,
   ElementRef,
   OnInit,
+  TemplateRef,
   ViewChild,
+  ViewContainerRef,
 } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
@@ -21,6 +23,16 @@ export class AppComponent implements OnInit, AfterViewInit {
   title = 'angular-viewchild-decorator-examples';
   primary = '#1976d2';
 
+  constructor(private viewContainerRef: ViewContainerRef) {}
+
+  show() {
+    this.viewContainerRef.createEmbeddedView(this.template);
+  }
+
+  hide() {
+    this.viewContainerRef.clear();
+  }
+
   ngOnInit(): void {
     console.log('Componente', this.colorSampleComponent);
   }
@@ -31,6 +43,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     console.log('matInput', this.matInput);
     console.log('primaryInput', this.test);
   }
+
+  // recuperando a referencia de um TemplateRef
+  @ViewChild(TemplateRef)
+  template: TemplateRef<unknown>;
 
   // recuperando a referencia de um serviço
   @ViewChild(ColorSampleService)
